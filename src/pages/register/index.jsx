@@ -1,14 +1,17 @@
-/* eslint-disable no-console */
-import React from 'react';
+import { React, useState } from 'react';
+import Cookies from 'js-cookie';
 
 const Register = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const fetchFunction = (e) => {
     e.preventDefault();
-
     const data = {
-      username: 'marie',
-      email: 'mdmd@gmail.com',
-      password: 'blabla',
+      username,
+      email,
+      password,
     };
 
     fetch('http://localhost:1337/auth/local/register', {
@@ -19,16 +22,15 @@ const Register = () => {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((response) => console.log(response));
-    console.log(data);
+      .then((jwt) => { Cookies.set('token', jwt); });
   };
 
   return (
     <div className="Register">
       <form>
-        <input type="text" name="username" placeholder="Put your username here" />
-        <input type="email" name="email" placeholder="email" />
-        <input type="password" name="password" placeholder="password" />
+        <input type="text" name="username" placeholder="Put your username here" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input type="email" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit" onClick={fetchFunction}>ça part</button>
       </form>
     </div>

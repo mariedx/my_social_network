@@ -12,7 +12,7 @@ import Home from 'pages/Home';
 import Register from 'pages/Register';
 import Login from 'pages/Login';
 import Profile from 'pages/MyProfile';
-import OtherProfile from 'pages/Profile';
+import OtherProfile from 'pages/OtherProfile';
 import Navbar from 'components/navbar';
 
 const App = () => (

@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 
 const Profile = () => {
@@ -14,7 +15,6 @@ const Profile = () => {
     })
       .then((response) => response.json())
       .then((jwt) => {
-        console.log(jwt);
         setCurrentUser(jwt);
       });
   };
@@ -23,12 +23,19 @@ const Profile = () => {
     myProfileDisplay();
   }, []);
 
+  const getCurrentUser = (state) => state;
+  const { id, username, email } = useSelector(getCurrentUser);
+
+  console.log(id);
+  console.log(username);
+  console.log(email);
+
   return (
     <div>
       {' '}
       {!currentUser && 'loading'}
       {' '}
-      {currentUser && currentUser.username + currentUser.email }
+      {currentUser && currentUser.username + currentUser.email}
       {' '}
     </div>
   );

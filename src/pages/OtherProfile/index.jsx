@@ -16,7 +16,6 @@ const OtherProfile = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setAuthorInfo(response);
       });
   };

@@ -9,10 +9,10 @@ import Register from './pages/register';
 import Login from './pages/login';
 import Profile from './pages/profile';
 import Navbar from './components/navbar';
-import checkinReducer from './redux/reducers/checkinReducer';
+import allReducers from './redux/reducers/allReducers';
 
 const store = createStore(
-  checkinReducer,
+  allReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 

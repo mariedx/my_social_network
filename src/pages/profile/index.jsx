@@ -1,9 +1,36 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
-const Profile = () => (
-  <div className="Profile">
-    <h1>Profile</h1>
-  </div>
-);
+const Profile = () => {
+  const [currentUser, setCurrentUser] = useState('');
+
+  const profileDisplay = () => {
+    fetch('http://localhost:1337/users/me', {
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${Cookies.get('token')}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((jwt) => {
+        setCurrentUser(jwt);
+      });
+  };
+
+  useEffect(() => {
+    profileDisplay();
+  }, []);
+
+  return (
+    <div>
+      {' '}
+      {!currentUser && 'loading'}
+      {' '}
+      {currentUser && 'coucou'}
+      {' '}
+    </div>
+  );
+};
 
 export default Profile;

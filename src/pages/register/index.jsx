@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { checkIn } from '../../redux/actions';
+import { checkIn, CurrentUser } from '../../redux/actions';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -26,10 +26,13 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        response.json();
+      })
       .then((jwt) => {
         Cookies.set('token', jwt);
         dispatch(checkIn());
+        dispatch(CurrentUser({ username, email }));
         history.push('/');
       });
   };

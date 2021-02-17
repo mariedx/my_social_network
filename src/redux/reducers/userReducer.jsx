@@ -1,15 +1,19 @@
 const initialState = {
+  id: 'still not logged in',
   username: 'not logged in',
   email: 'not logged in',
 };
 
 const userReducer = (state = initialState, action) => {
-  const { type, username, email } = action;
+  const {
+    type, id, username, email,
+  } = action;
 
   switch (type) {
     case 'currentUser':
       return {
         ...state,
+        id,
         username,
         email,
       };

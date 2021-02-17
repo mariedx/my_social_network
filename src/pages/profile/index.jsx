@@ -27,7 +27,7 @@ const Profile = () => {
       {' '}
       {!currentUser && 'loading'}
       {' '}
-      {currentUser && 'coucou'}
+      {currentUser && currentUser.username + currentUser.email }
       {' '}
     </div>
   );

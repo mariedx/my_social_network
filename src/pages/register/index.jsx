@@ -26,13 +26,17 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => {
-        response.json();
-      })
-      .then((jwt) => {
-        Cookies.set('token', jwt);
+      .then((response) => response.json())
+      .then((element) => {
+        Cookies.set('token', element.jwt);
+        // eslint-disable-next-line no-console
+        console.log(element);
         dispatch(checkIn());
-        dispatch(CurrentUser({ username, email }));
+        dispatch(CurrentUser({
+          id: element.user.id,
+          username: element.user.username,
+          email: element.user.email,
+        }));
         history.push('/');
       });
   };

@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { checkIn, checkOut } from '../../redux/actions';
+import { checkIn, checkOut } from '../../stores/actions';
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
@@ -25,8 +25,9 @@ const Login = () => {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((jwt) => {
-        Cookies.set('token', jwt);
+      .then((userdata) => {
+        Cookies.set('token', userdata.jwt);
+        console.log(userdata.jwt);
         dispatch(checkIn());
         history.push('/');
       });

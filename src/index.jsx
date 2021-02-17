@@ -2,19 +2,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import Home from './pages/home';
-import Register from './pages/register';
-import Login from './pages/login';
-import Profile from './pages/profile';
-import Navbar from './components/navbar';
-import allReducers from './redux/reducers/allReducers';
-
-const store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+import stores from 'stores';
+import Home from 'pages/home';
+import Register from 'pages/register';
+import Login from 'pages/login';
+import Profile from 'pages/myProfile';
+import Navbar from 'components/navbar';
 
 const App = () => (
   <Router>
@@ -31,7 +25,7 @@ const App = () => (
 );
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={stores}>
     <App />
   </Provider>,
   document.getElementById('root'),

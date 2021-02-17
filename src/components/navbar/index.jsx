@@ -10,8 +10,6 @@ const Navbar = () => (
     <Link to="/login">Login</Link>
     {' '}
     <Link to="/myprofile">My Profile</Link>
-    {' '}
-    <Link to="/profile/:userID">Other Profile</Link>
   </div>
 );
 

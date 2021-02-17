@@ -1,13 +1,13 @@
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { React, useEffect, useState } from 'react';
 
 const OtherProfile = () => {
-  // const { authorID } = useParams();
+  const { userID } = useParams();
   const [authorInfo, setAuthorInfo] = useState('');
 
   const getAuthorInfo = () => {
-    fetch('http://localhost:1337/users/2', {
+    fetch(`http://localhost:1337/users/${userID}`, {
       method: 'get',
       headers: {
         Authorization: `Bearer ${Cookies.get('token')}`,

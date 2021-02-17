@@ -1,10 +1,15 @@
 import { React, useState } from 'react';
 import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { checkIn } from '../../redux/actions';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const fetchFunction = (e) => {
     e.preventDefault();
@@ -22,7 +27,11 @@ const Register = () => {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((jwt) => { Cookies.set('token', jwt); });
+      .then((jwt) => {
+        Cookies.set('token', jwt);
+        dispatch(checkIn());
+        history.push('/');
+      });
   };
 
   return (

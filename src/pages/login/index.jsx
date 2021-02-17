@@ -1,9 +1,14 @@
 import { React, useState } from 'react';
 import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { checkIn, checkOut } from '../../redux/actions';
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const fetchFunction = (e) => {
     e.preventDefault();
@@ -22,8 +27,16 @@ const Login = () => {
       .then((response) => response.json())
       .then((jwt) => {
         Cookies.set('token', jwt);
-        console.log(jwt);
+        dispatch(checkIn());
+        history.push('/');
       });
+  };
+
+  const logOut = (e) => {
+    e.preventDefault();
+    Cookies.remove('token');
+    dispatch(checkOut());
+    history.push('/');
   };
 
   return (
@@ -32,6 +45,7 @@ const Login = () => {
         <input type="email" name="email" placeholder="email" value={identifier} onChange={(e) => setIdentifier(e.target.value)} />
         <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit" onClick={fetchFunction}>ça part</button>
+        <button type="submit" onClick={logOut}>ça part plus</button>
       </form>
     </div>
   );

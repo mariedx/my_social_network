@@ -14,6 +14,7 @@ const Profile = () => {
     })
       .then((response) => response.json())
       .then((jwt) => {
+        console.log(jwt);
         setCurrentUser(jwt);
       });
   };

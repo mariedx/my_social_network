@@ -6,8 +6,9 @@ export const checkOut = () => ({
   type: 'CHECK_OUT',
 });
 
-export const CurrentUser = ({ username, email }) => ({
+export const CurrentUser = ({ id, username, email }) => ({
   type: 'currentUser',
+  id,
   username,
   email,
 });

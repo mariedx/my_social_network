@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 import { React, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { checkIn, checkOut } from '../../stores/actions';
+import { checkIn, checkOut, CurrentUser } from '../../stores/actions';
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
@@ -27,8 +28,14 @@ const Login = () => {
       .then((response) => response.json())
       .then((userdata) => {
         Cookies.set('token', userdata.jwt);
-        console.log(userdata.jwt);
+        // eslint-disable-next-line no-console
+        console.log(userdata);
         dispatch(checkIn());
+        dispatch(CurrentUser({
+          id: userdata.user.id,
+          username: userdata.user.username,
+          email: userdata.user.email,
+        }));
         history.push('/');
       });
   };

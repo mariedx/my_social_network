@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom';
 import dayjs from 'dayjs';
-import EditPost from 'components/Posts/EditPost';
+import LikePost from './LikePost';
 
 const DisplayAllPosts = () => {
   const currentUserData = useSelector((state) => state.userReducer);
@@ -42,7 +42,6 @@ const DisplayAllPosts = () => {
     })
       .then((response) => response.json())
       .then(() => {
-        console.log(thepost);
         history.push('/');
       })
       .catch((err) => console.log(err));
@@ -60,6 +59,7 @@ const DisplayAllPosts = () => {
 
       {arrayPost.map((post) => (
         <li key={post.id} style={{ listStyleType: 'none' }}>
+          <LikePost like={post.like} id={post.id} />
           {post.user.username}
           <br />
           {dayjs(post.created_at).format('DD MMMM YYYY')}
@@ -69,7 +69,6 @@ const DisplayAllPosts = () => {
           {post.user.id === id
             && (
             <div>
-              <EditPost />
               <button type="button" onClick={() => fetchDeletePost(post.id)}>Delete it</button>
             </div>
             )}

@@ -1,0 +1,11 @@
+html, body {
+	height: 100%;
+	margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+  font-family: sans-serif;
+}
+
+@mixin Center {
+  margin: 2% 25%;
+}

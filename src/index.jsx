@@ -14,6 +14,7 @@ import Login from 'pages/Login';
 import Profile from 'pages/MyProfile';
 import OtherProfile from 'pages/OtherProfile';
 import Navbar from 'components/Navbar';
+import 'index.scss';
 
 const App = () => (
   <Router>

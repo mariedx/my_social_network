@@ -1,0 +1,14 @@
+@import "../../index.scss";
+
+.card {
+  border: 1px black solid;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: mintcream;
+}
+
+.DisplayPost, .CreatePost {
+  margin: 2% 25%;
+  width: 50%;
+}

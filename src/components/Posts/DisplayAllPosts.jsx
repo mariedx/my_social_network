@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom';
 import dayjs from 'dayjs';
 import LikePost from './LikePost';
+import './index.scss';
 
 const DisplayAllPosts = () => {
   const currentUserData = useSelector((state) => state.userReducer);
@@ -48,7 +49,7 @@ const DisplayAllPosts = () => {
   };
 
   return (
-    <div className="CreatePost">
+    <div className="DisplayPost">
       <h3>
         Tous nos
         {' '}
@@ -58,7 +59,7 @@ const DisplayAllPosts = () => {
       </h3>
 
       {arrayPost.map((post) => (
-        <li key={post.id} style={{ listStyleType: 'none' }}>
+        <li className="card" key={post.id} style={{ listStyleType: 'none' }}>
           <LikePost like={post.like} id={post.id} />
           {post.user.username}
           <br />

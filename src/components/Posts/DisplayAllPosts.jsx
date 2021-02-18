@@ -11,7 +11,7 @@ const DisplayAllPosts = () => {
   const [arrayPost, setArrayPost] = useState([]);
   const history = useHistory();
 
-  const fetchCreatePost = () => {
+  const fetchDisplayPost = () => {
     fetch('http://localhost:1337/posts', {
       method: 'get',
       headers: {
@@ -29,7 +29,7 @@ const DisplayAllPosts = () => {
   };
 
   useEffect(() => {
-    fetchCreatePost();
+    fetchDisplayPost();
   }, []);
 
   const fetchDeletePost = (thepost) => {
@@ -70,7 +70,7 @@ const DisplayAllPosts = () => {
             && (
             <div>
               <EditPost />
-              <button type="button" onClick={fetchDeletePost(post.id)}>Delete it</button>
+              <button type="button" onClick={() => fetchDeletePost(post.id)}>Delete it</button>
             </div>
             )}
         </li>

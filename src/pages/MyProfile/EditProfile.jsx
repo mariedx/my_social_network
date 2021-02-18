@@ -62,7 +62,9 @@ const EditProfile = () => {
         {' '}
       </h3>
       <form>
+        <p>Your name</p>
         <input type="text" name="username" placeholder="Put your username here" value={newUsername} onChange={(e) => setUsername(e.target.value)} />
+        <p>Your email</p>
         <input type="email" name="email" placeholder="email" value={newEmail} onChange={(e) => setEmail(e.target.value)} />
         {/* <input type="password" name="password" placeholder="password" value={newPassword} onChange={(e) => setPassword(e.target.value)} /> */}
         <button type="submit" onClick={fetchEditedProfile}>ça part</button>

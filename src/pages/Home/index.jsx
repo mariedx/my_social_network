@@ -1,8 +1,11 @@
 import React from 'react';
+import CreatePost from 'components/Posts/CreatePost';
+import DisplayAllPosts from 'components/Posts/DisplayAllPosts';
 
 const Home = () => (
-  <div className="Home">
-    <h2>HOME</h2>
+  <div>
+    <CreatePost />
+    <DisplayAllPosts />
   </div>
 );
 

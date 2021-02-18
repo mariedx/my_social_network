@@ -13,7 +13,7 @@ import Register from 'pages/Register';
 import Login from 'pages/Login';
 import Profile from 'pages/MyProfile';
 import OtherProfile from 'pages/OtherProfile';
-import Navbar from 'components/navbar';
+import Navbar from 'components/Navbar';
 
 const App = () => (
   <Router>

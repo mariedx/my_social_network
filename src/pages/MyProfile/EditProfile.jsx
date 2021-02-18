@@ -27,7 +27,7 @@ const EditProfile = () => {
       email: newEmail,
     };
 
-    fetch(`http://localhost:1337/users/${id}`, {
+    fetch('http://localhost:1337/users/me', {
       method: 'put',
       headers: {
         Authorization: `Bearer ${Cookies.get('token')}`,

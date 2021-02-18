@@ -37,7 +37,7 @@ const DisplayAllPosts = () => {
       </h3>
 
       {arrayPost.map((post) => (
-        <li style={{ listStyleType: 'none' }}>
+        <li key={post.id} style={{ listStyleType: 'none' }}>
           {post.user.username}
           <br />
           {dayjs(post.created_at).format('DD MMMM YYYY')}

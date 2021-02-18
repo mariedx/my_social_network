@@ -40,7 +40,7 @@ const OtherProfile = () => {
   };
 
   return (
-    <div className="card">
+    <div className="OtherProfile">
       <h2>Profil de l`auteur:</h2>
       <p>{userInfo.username}</p>
       <p>{userInfo.email}</p>

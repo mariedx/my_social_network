@@ -3,7 +3,7 @@ import { React, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { checkIn, checkOut, CurrentUser } from '../../stores/actions';
+import { checkIn, CurrentUser } from '../../stores/actions';
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
@@ -40,12 +40,12 @@ const Login = () => {
       });
   };
 
-  const logOut = (e) => {
-    e.preventDefault();
-    Cookies.remove('token');
-    dispatch(checkOut());
-    history.push('/');
-  };
+  // const logOut = (e) => {
+  //   e.preventDefault();
+  //   Cookies.remove('token');
+  //   dispatch(checkOut());
+  //   history.push('/');
+  // };
 
   return (
     <div className="Login">
@@ -53,7 +53,6 @@ const Login = () => {
         <input type="email" name="email" placeholder="email" value={identifier} onChange={(e) => setIdentifier(e.target.value)} />
         <input type="password" name="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit" onClick={fetchFunction}>ça part</button>
-        <button type="submit" onClick={logOut}>ça part plus</button>
       </form>
     </div>
   );

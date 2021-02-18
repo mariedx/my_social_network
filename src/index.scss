@@ -2,10 +2,55 @@ html, body {
 	height: 100%;
 	margin: 0;
   padding: 0;
-  background-color: whitesmoke;
+  background-color: white;
   font-family: sans-serif;
 }
 
-@mixin Center {
+@mixin center {
   margin: 2% 25%;
+  width: 50%;
+}
+
+input {
+  height: 30px;
+  border: 2px plum solid;
+  border-radius: 15px;
+  width: 90%;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  background-color: rgb(241, 226, 241);
+  margin-top: 10px;
+
+  &:hover{
+    border: 3px rgb(146, 61, 146) solid;
+    transition: border 0.5s ease-in-out, color 0.6s ease-in-out;
+    ;
+  }
+
+  &:focus {
+    outline:0;
+  }
+}
+
+button {
+  height: 30px;
+  border: 2px plum solid;
+  border-radius: 15px;
+  width: 60px;
+
+  &:hover{
+    background-color: rgb(202, 186, 202);
+    transition: background 0.5s ease-in-out, color 0.6s ease-in-out;
+
+  }
+
+  &:focus {
+    outline:0;
+  }
+
+}
+
+main {
+    margin: 2% 25%;
+    width: 50%;
 }

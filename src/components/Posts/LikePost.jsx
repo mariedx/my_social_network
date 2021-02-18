@@ -34,24 +34,23 @@ const LikePost = ({ like, id }) => {
 
   return (
     <div className="LikePost">
-      {/* <button type="button" onClick={fetchEditPost}>♡</button> */}
-      <small>
-        likes:
-        {nbLikes}
-      </small>
-      <br />
       {!likeStatus
         && (
         <button type="button" className="like-btn" onClick={() => fetchEditPost()}>
-          <i className="far fa-heart" aria-hidden="true" />
+          ❤️
         </button>
         )}
       {likeStatus
         && (
         <button type="button" className="like-btn" onClick={() => fetchEditPost()}>
-          <i className="fas fa-heart" aria-hidden="true" />
+          💔
         </button>
         )}
+      <br />
+      <small>
+        likes:
+        {nbLikes}
+      </small>
     </div>
   );
 };

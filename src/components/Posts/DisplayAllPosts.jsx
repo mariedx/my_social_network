@@ -51,7 +51,7 @@ const DisplayAllPosts = () => {
   return (
     <div className="DisplayPost">
       <h3>
-        Tous nos
+        Our
         {' '}
         {arrayPost.length}
         {' '}
@@ -70,7 +70,7 @@ const DisplayAllPosts = () => {
           {post.user.id === id
             && (
             <div>
-              <button type="button" onClick={() => fetchDeletePost(post.id)}>Delete it</button>
+              <button type="button" onClick={() => fetchDeletePost(post.id)}>❌</button>
             </div>
             )}
         </li>

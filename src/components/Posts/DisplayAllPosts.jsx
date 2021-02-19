@@ -42,9 +42,7 @@ const DisplayAllPosts = () => {
       },
     })
       .then((response) => response.json())
-      .then(() => {
-        history.push('/');
-      })
+      .then(() => fetchDisplayPost())
       .catch((err) => console.log(err));
   };
 
